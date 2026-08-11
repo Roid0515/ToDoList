@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-project(PersonalTodo VERSION 0.1.0 LANGUAGES C RC)
+project(PersonalTodo VERSION 2.0.0 LANGUAGES C RC)
 
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -8,7 +8,11 @@ set(CMAKE_C_EXTENSIONS OFF)
 add_executable(TodoList WIN32
     src/main.c
     src/app.c
-    src/ui.c
+    src/ui_main.c
+    src/ui_controls.c
+    src/ui_layout.c
+    src/ui_tasks.c
+    src/ui_settings.c
     src/database.c
     src/task.c
     src/paths.c

@@ -13,6 +13,12 @@ cmake --build build --config Release
 
 실행 파일은 `build/Release/TodoList.exe`에 생성됩니다. 외부 DLL, Python, .NET Runtime, 데이터베이스 서버가 필요하지 않습니다.
 
+`release/` 폴더에는 다음 배포 실행 파일이 포함되어 있습니다.
+
+- `TodoList.exe`: 최초 MVP
+- `TodoList_V1.5.exe`: Tab 이동과 ListView 컬럼 개선 버전
+- `TodoList_V2.exe`: UI 모듈 리팩터링 버전
+
 ## 사용법
 
 - 날짜, 선택적 시간, 제목, 내용, 우선순위, 완료 여부를 입력한 뒤 **등록**을 누릅니다.
@@ -58,3 +64,14 @@ CREATE TABLE IF NOT EXISTS tasks (
 제외: 시스템 트레이, 자동 시작, 반복 작업, 검색/필터, 알림, 클라우드 동기화, 테마.
 
 프로그램은 단일 GUI 스레드와 이벤트 기반 메시지 루프를 사용합니다. 백그라운드 스레드, 타이머, 폴링이 없어 유휴 상태에서 지속적인 DB 조회가 발생하지 않습니다.
+
+## UI 모듈 구조
+
+- `ui_main.c`: 창 생명주기와 Win32 메시지 라우팅
+- `ui_controls.c`: 컨트롤 생성, 컬럼 정의, 폼 초기화
+- `ui_layout.c`: 컨트롤 배치와 ListView 컬럼 너비
+- `ui_tasks.c`: 작업 폼 처리, 목록 갱신, CRUD 연결
+- `ui_settings.c`: 투명도, 항상 위, 창 상태 저장
+- `ui_internal.h`: UI 모듈 사이의 내부 계약
+
+V1.5의 기존 단일 파일 구현은 비교와 변경 이력 확인을 위해 `ui.c`에 비활성 코드로 보존되어 있으며 빌드에는 포함되지 않습니다.

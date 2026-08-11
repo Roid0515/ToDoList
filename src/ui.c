@@ -1,3 +1,10 @@
+/*
+ * Legacy UI implementation preserved for the V2 refactoring history.
+ * The active implementation is split across ui_main.c, ui_controls.c,
+ * ui_layout.c, ui_tasks.c, and ui_settings.c.
+ */
+#if 0
+
 #include "ui.h"
 #include "resource.h"
 #include "log.h"
@@ -224,3 +231,5 @@ static LRESULT CALLBACK window_proc(HWND hwnd, UINT message, WPARAM wparam, LPAR
     }
     return DefWindowProcW(hwnd, message, wparam, lparam);
 }
+
+#endif /* Legacy V1.5 ui.c */
