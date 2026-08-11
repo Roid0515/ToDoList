@@ -13,7 +13,11 @@ cmake --build build --config Release
 
 실행 파일은 `build/Release/TodoList.exe`에 생성됩니다. 외부 DLL, Python, .NET Runtime, 데이터베이스 서버가 필요하지 않습니다.
 
-배포용 V2 실행 파일은 `release/TodoList_V2.exe`입니다.
+`release/` 폴더에는 다음 배포 실행 파일이 포함되어 있습니다.
+
+- `TodoList.exe`: 최초 MVP
+- `TodoList_V1.5.exe`: Tab 이동과 ListView 컬럼 개선 버전
+- `TodoList_V2.exe`: UI 모듈 리팩터링 버전
 
 ## 사용법
 
