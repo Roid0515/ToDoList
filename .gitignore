@@ -1,0 +1,24 @@
+# CMake and Visual Studio build output
+/build/
+/.vs/
+/out/
+CMakeUserPresets.json
+*.user
+*.suo
+*.pdb
+*.ilk
+
+# Local runtime data
+*.db
+*.db-shm
+*.db-wal
+*.log
+settings.ini
+
+# Superseded local release artifact
+/release/TodoList.exe
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+*.swp
